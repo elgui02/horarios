@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">{{ entity.Curso }}</h1>
+    <p class="lead">Código: {{entity.Codigo}} Carrera: {{entity.Carrera}}</p>
+{% endblock %}
+
+{% block body -%}
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Pensum</th>
+                <td>{{ entity.Pensum }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('pensum_show', { 'id': entity.id })}}">
+            Regresar a la Lista
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('pensumanio_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

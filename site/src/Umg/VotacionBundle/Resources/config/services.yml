@@ -1,0 +1,22 @@
+services:
+#    umg_votacion.example:
+#        class: Umg\VotacionBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+#    umg_votacion.Jornada:
+#        class: Umg\VotacionBundle\Admin\JornadaAdmin
+#        tags:
+#        - { name: umg_votacion.Jornada, manager_type: orm, group: "Grupo", label: "Jornada" }
+#        arguments: [null, Umg\VotacionBundle\Entity\Jornada, UmgVotacionBundle:JornadaAdmin]
+
+    
+#    umg_votacion.Jornada:
+#        class: Umg\VotacionBundle\Admin\JornadaAdmin
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, group: "Grupo", label: "Jornada" }
+#        arguments: 
+#            - ~
+#            - Umg\VotacionBundle\Entity\Jornada
+#            - ~
+#        calls:
+#            -[setTranslationDomain, [UmgVotacionBundle]]       

@@ -1,0 +1,61 @@
+<?php
+namespace Umg\VotacionBundle\Model;
+
+
+use Brown298\DataTablesBundle\Model\DataTable\AbstractQueryBuilderDataTable;
+use Brown298\DataTablesBundle\Model\DataTable\QueryBuilderDataTableInterface;
+use Symfony\Component\HttpFoundation\Request;
+
+/**
+ * Class CarreraTable
+ *
+ * @package Brown298\DtTestBundle\Model
+ */
+class CarreraTable extends AbstractQueryBuilderDataTable implements QueryBuilderDataTableInterface
+{
+    /**
+     * @var array
+     */
+    protected $columns = array(
+        'c.id'   => 'Id',
+        'c.carrera' => 'Carrera',
+    );
+
+    /**
+     * getDataFormatter
+     *
+     * @return \Closure
+     */
+    public function getDataFormatter()
+    {
+        $renderer = $this->container->get('templating');
+        return function($data) use ($renderer) {
+            $count   = 0;
+            $results = array();
+
+            foreach ($data as $row) {
+                $results[$count][] = $row['id'];
+                $results[$count][] = $row['Carrera'];
+                //$results[$count][] = $rowenderer->render('Brown298DtTestBundle:DtModelStyle:nameFormatter.html.twig', array('name' => $row['username']));
+                $count += 1;
+            }
+
+            return $results;
+        };
+    }
+
+    /**
+     * getQueryBuilder
+     *
+     * @param Request $request
+     *
+     * @return null
+     */
+    public function getQueryBuilder(Request $request = null)
+    {
+        $carreraRepository = $this->em->getRepository('Umg\VotacionBundle\Entity\Carrera');
+        $qb = $carreraRepository->createQueryBuilder('c');
+
+        return $qb;
+    }
+}

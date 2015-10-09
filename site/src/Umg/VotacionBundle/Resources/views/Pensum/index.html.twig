@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">Lista de pensum's</h1>
+{% endblock %}
+
+{% block body -%}
+<div class="table-responsive">
+    
+            <div class="table-bordered">
+                {{ addDataTable(dataTable) }}
+            </div>
+        </div>
+            <a href="{{ path('pensum_new') }}" class='btn btn-primary'>
+                Nuevo pensum
+            </a>
+    {% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+        <html xmlns="http://www.w3.org/1999/xhtml" class="ie8" lang="en-US">
+    <![endif]-->
+<!--[if !(IE 8) ]><!-->
+        <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+    <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Generación UMG</title>
+    <link rel='stylesheet' id='buttons-css'  href={{ asset('bundles/umgvotacion/css/buttons.min.css') }} type='text/css' media='all' />
+    <link rel='stylesheet' id='dashicons-css'  href={{ asset('bundles/umgvotacion/css/dashicons.min.css') }} type='text/css' media='all' />
+    <link rel='stylesheet' id='login-css'  href={{ asset('bundles/umgvotacion/css/login.min.css')}} type='text/css' media='all' />
+<meta name='robots' content='noindex,follow' />
+</head>
+<body class="login login-action-login wp-core-ui  locale-en-us">
+{%block fos_user_content %}
+{%endblock %}
+
+<link rel='stylesheet' id='wp-color-picker-css' href={{ asset('bundles/umgvotacion/css/color-picker.min.css') }} type='text/css' media='all' />
+<link rel='stylesheet' id='custom-login-css'href={{ asset('bundles/umgvotacion/css/bootstrap_login.min.css') }} type='text/css' media='all' />
+<div class="clear"></div>
+</body>
+</html>

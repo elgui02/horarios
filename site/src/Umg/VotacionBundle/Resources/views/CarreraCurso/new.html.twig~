@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+{% block titulo %}
+    <h1 class="page-title">Asignación de cursos a la carrera</h1>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+  <script>
+  $("#umg_votacionbundle_carreracurso_pensumAnio").select2();
+  </script>
+{% endblock %}
+
+{% block body -%}
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+    <a href="{{ path('campuscarrera_show',{'id':entity.CampusCarrera.id}) }}">
+            Regresar a la carrera
+        </a>
+    </li>
+</ul>
+{% endblock %}

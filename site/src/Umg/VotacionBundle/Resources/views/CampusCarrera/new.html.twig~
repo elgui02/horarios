@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">Asignación de carrera a campus</h1>
+{% endblock %}
+
+{% block body -%}
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+    <a href="{{ path('campus_show', {id:entity.Campus.id}) }}">
+            Regresar al campus
+        </a>
+    </li>
+</ul>
+{% endblock %}

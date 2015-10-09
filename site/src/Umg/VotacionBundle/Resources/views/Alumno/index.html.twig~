@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+{% block titulo %}
+    <h1 class="page-title">Lista de alumnos</h1>
+{% endblock %}
+
+{% block body -%}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Carné</th>
+                <th>Actiones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('alumno_show', { 'id': entity.id }) }}">{{ entity.Nombre }}</a></td>
+                <td>{{ entity.Carne }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('alumno_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('alumno_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

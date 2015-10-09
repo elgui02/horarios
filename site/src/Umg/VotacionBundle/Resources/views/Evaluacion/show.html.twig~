@@ -1,0 +1,58 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">{{entity.CampusCarrera}}</h1>
+    <p class="lead">Fecha inicio: {{ entity.FechaHora|date('Y-m-d H:i:s') }}<br />
+    Fecha finalización: {{ entity.FechaHoraFinal|date('Y-m-d H:i:s') }}</p>
+{% endblock %}
+
+{% block body -%}
+    <h2>{% if entity.Activa == 1 %} Activa {% else %} No Activa {% endif %}</h2>
+
+    <h1> Preguntas </h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pregunta</th>
+                <th>Opciones</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pregunta in entity.getPregunta %}
+            <tr>
+                <td>{{ pregunta.Pregunta }}</td>
+                <td>
+                    <ul class="list-group list-group-flush">
+                        {% set nuevo = 1 %}
+                    {%for opcion in pregunta.getOpcionPregunta %}
+                        {% set nuevo = 0 %}
+                        <li class="list-group-item">{{opcion.Opcion}}<span class="badge"><span class="glyphicon glyphicon-trash" ></span></span></li>
+                    {%endfor%}
+                    </ul>
+                        <a href={{path('opcionpreguntum_new',{'id':pregunta.id})}}>Agregar respuestas</a>
+                </td>
+                <td>
+                    <ul>
+                        <li><a href="{{path('preguntum_edit', { 'id': pregunta.id }) }}">editar</a></li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href={{path('preguntum_new',{'id':entity.id})}} class='btn btn-primary'>Nueva pregunta</a>
+    <br />
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('evaluacion') }}">
+            Regresar al listado
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('evaluacion_edit', { 'id': entity.id }) }}">
+            Editar
+        </a>
+    </li>
+</ul>
+{% endblock %}

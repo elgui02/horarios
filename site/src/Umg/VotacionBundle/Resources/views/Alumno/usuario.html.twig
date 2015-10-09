@@ -1,0 +1,5 @@
+{% if usuario %}
+    <a href="{{ path('usuario_edit', { 'id': usuario.id }) }}">{{ usuario.username }}</a>
+{% else %}
+    <a href="{{ path('usuario_new_alumno', { 'id': id }) }}">Asignar usuario</a>
+{% endif %}

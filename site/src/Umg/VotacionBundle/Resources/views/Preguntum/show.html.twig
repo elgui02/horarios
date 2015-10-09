@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Preguntum</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Pregunta</th>
+                <td>{{ entity.Pregunta }}</td>
+            </tr>
+            <tr>
+                <th>Tipopregunta_id</th>
+                <td>{{ entity.TipoPreguntaid }}</td>
+            </tr>
+            <tr>
+                <th>Evaluacion_id</th>
+                <td>{{ entity.Evaluacionid }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('preguntum') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('preguntum_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,5 @@
+<div class="text-right">
+    <a href="{{ path('carrera_show', { 'id': id }) }}">Ver </a><br />
+    <a href="{{ path('carrera_edit', { 'id': id }) }}">Editar </a>
+</div>
+

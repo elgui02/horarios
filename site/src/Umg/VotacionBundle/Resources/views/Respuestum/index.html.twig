@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Respuestum list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Respuesta</th>
+                <th>Pregunta_id</th>
+                <th>Alumnocurso_id</th>
+                <th>Catedratico_id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('respuestum_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.Respuesta }}</td>
+                <td>{{ entity.Preguntaid }}</td>
+                <td>{{ entity.AlumnoCursoid }}</td>
+                <td>{{ entity.Catedraticoid }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('respuestum_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('respuestum_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('respuestum_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

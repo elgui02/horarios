@@ -1,0 +1,124 @@
+{% extends '::base.html.twig' %}
+{% block titulo %}
+    <h1 class="page-title"> Visualización de Estudiantes </h1>
+{% endblock %}
+{% block body %}
+  <h3>Encabezado </h3>
+  <form role="form" method="post" enctype="multipart/form-data" action='{{path('cargararchivo')}}'>
+        <table class="table table-striped">
+        <thead>
+            <tr>
+              <th class="warning">Carrera</th>
+              {% if carrera %}
+              <th>{{ carrera.Codigo }} - {{ carrera.Carrera }}</th>
+              {% else %}
+              <th>snc</th>
+              <th>No existe la carrera, por favor crearla </th>
+              {% endif %}
+            </tr>
+            <tr>
+              <th class="warning">Curso</th>
+              {%if curs %}
+              <th>{{ curs.Codigo }} - {{ curs.Curso }}</th>
+              {% else %}
+              <th>{{ curso[2] }}</th>
+              <th>No existe la curso, por favor crearlo </th>
+              {% endif %}
+            </tr>
+            <tr>
+              <th class="warning">Catedrático</th>
+              {%if catedratico %}
+              <th>{{ catedratico.Codigo }} - {{ catedratico.Nombre }}</th>
+              {% if catcur %}
+              <th> el docente se asigará al curso </th>
+              {%endif%}
+              {% else %}
+              <th><input type="text" value="{{ docente[2] }}"></th>
+              <th>No existe el docente {% if catcur %}, el docente se asigará al curso {%endif%} </th>
+              {% endif %}
+            </tr>
+
+            {#<tr>
+              <th class="warning">Alumno</th>
+              {%if alum %}
+              <th>{{ alum.Carne }} - {{ alum.Nombre }}</th>
+              {% else %}
+              <th><input type="text" value="{{ alumno[1]}}"></th>
+              <th><input type="text" value="{{ alumno[2] }}"></th>
+              <th>No existe el alumno </th>
+              {% endif %}
+            </tr>#}
+        </thead>
+        {#  <tbody>
+        {% for line in tabla %}
+         <tr>
+              {% for campo in line %}
+              <td>{{campo}}</td>
+              {% endfor %}
+         </tr>
+         {%endfor%}
+        </tbody>#}
+
+
+        </table>
+        <h2><h2>
+  </form>
+    <h3>Alumnos Existentes y Asignados</h3>
+    <table  class="table table-striped">
+        <tbody>
+        <td class="warning">Carné</td>
+        <td class="warning">Alumno</td>
+        {% for line in noasigalumno %}
+        <tr>
+        <td>
+              {{line.Carne}}
+        </td>
+        <td>
+              {{line.Nombre}}
+        </td>
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+    </br>
+    <h3>Alumnos Existentes y No Asignados</h3>
+    <table  class="table table-striped">
+        <tbody>
+        <td class="danger">Carné</td>
+        <td class="danger">Alumno</td>
+        {% for line in veralumno %}
+        <tr>
+        <td>
+              {{line.Carne}}
+        </td>
+        <td>
+              {{line.Nombre}}
+        </td>
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+    </br>
+    <h3>Alumnos que se crearan y asignaran</h3>
+    <table  class="table table-striped">
+        <tbody>
+        <td class="success">Carné</td>
+        <td class="success">Alumno</td>
+        {% for i in 0..cantalum %}
+        <tr>
+        <td>
+              {{noalumno[i]}}
+        </td>
+        <td>
+              {{nomnoalumno[i]}}
+        </td>
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+    </br>
+  <a href="{# path('carreraarchivo') #}">
+      Back to the list
+  </a>
+  <hr/>
+{% endblock %}

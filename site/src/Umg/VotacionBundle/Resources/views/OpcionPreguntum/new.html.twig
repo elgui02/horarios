@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+{% block titulo %}
+    <h1 class="page-title">Asignación de respuestas</h1>
+{% endblock %}
+{% block body -%}
+
+    {{ form_javascript(form) }}
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('evaluacion_show', {'id': entity.Preguntum.Evaluacion.id}) }}">
+            Regresar a la lista
+        </a>
+    </li>
+</ul>
+{% endblock %}

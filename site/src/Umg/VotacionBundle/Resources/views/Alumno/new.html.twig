@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">Nuevo alumno</h1>
+{% endblock %}
+
+{% block body -%}
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('alumno') }}">
+            Regresar a la lista
+        </a>
+    </li>
+</ul>
+{% endblock %}

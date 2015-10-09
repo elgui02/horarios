@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+{% block titulo %}
+    <h1 class="page-title">Bienvenido al sistema de generación de horarios</h1>
+{% endblock %}
+
+{% block body -%}
+{#<h2> Encuestas activas </h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Carrera</th>
+            <th>Fecha finalización</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for evaluacion in evaluaciones %}
+        <tr>
+            <td>{{evaluacion.CampusCarrera}}</td>
+            <td>{{evaluacion.FechaHoraFinal|date('Y-m-d H:i:s')}}</td>
+            <td>
+                <a href={{path('ver_resultado',{'id':evaluacion.id})}}>ver</a>
+            </td>
+        {% endfor %}            
+    </tbody>
+</table>
+#}
+{% endblock %}

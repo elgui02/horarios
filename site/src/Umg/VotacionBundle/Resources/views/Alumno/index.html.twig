@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+{% block titulo %}
+    <h1 class="page-title">Lista de alumnos</h1>
+{% endblock %}
+
+{% block body -%}
+<div class="table-responsive">
+    
+            <div class="table-bordered">
+                {{ addDataTable(dataTable) }}
+            </div>
+        </div>
+        <br/>
+        <ul>
+        <li>
+            <a href="{{ path('alumno_new') }}">
+                Agregar nuevo alumno
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

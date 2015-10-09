@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+{% block titulo %}
+    <h1 class="page-title">Evaluación docente</h1>
+    <p class="lead">{{cc.PensumAnio.Codigo}} - {{cc.PensumAnio.Curso}}<br />{% for cat in cc.catedraticoCursos%}{{cat}}{%endfor%}</p>
+{% endblock %}
+
+{% block body -%}
+
+<table class="table table-responsive">
+    {% set id = 0 %}
+    {% set tipo = 0 %}
+    {% set pr = "0" %}
+    {% for resp in respuestas %}
+        <tr>
+            <th width="50%">
+                {% if pr == resp.Preguntum.Pregunta %}
+                    Observaciones
+                {%else%}
+                    {{resp.Preguntum.Pregunta}}
+                {%endif%}
+                {% set pr = resp.Preguntum.Pregunta %}
+            <td> {{resp.Respuesta}} </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('ver_resultado',{'id':evaluacion.id}) }}">
+            Regresar a la lista
+        </a>
+    </li>
+</ul>
+{% endblock %}

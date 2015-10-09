@@ -1,0 +1,28 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    usuario.admin.post:
+        class: Umg\VotacionBundle\Admin\UsuarioAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Administración, label: Usuarios }
+        arguments: [null, Umg\VotacionBundle\Entity\Usuario, UmgVotacionAtpBundle:UsuarioAdmin]
+ 
+    grupo.admin.post:
+        class: Umg\VotacionBundle\Admin\GrupoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Administración, label: Grupos }
+        arguments: [null, Umg\VotacionBundle\Entity\Grupo, UmgVotacionBundle:UsuarioAdmin]
+
+    pensum.admin:
+        class: Umg\VotacionBundle\Admin\PensumAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Cursos, label: Pensum }
+        arguments: [null, Umg\VotacionBundle\Entity\Pensum, UmgVotacionBundle:UsuarioAdmin]
+

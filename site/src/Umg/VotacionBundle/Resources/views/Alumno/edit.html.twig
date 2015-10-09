@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+{% block titulo %}
+    <h1 class="page-title">Editar alumno</h1>
+{% endblock %}
+{% block body -%}
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('alumno') }}">
+            Regresar a la lista
+        </a>
+    </li>
+</ul>
+{% endblock %}

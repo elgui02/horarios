@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+{% block titulo %}
+    <h1 class="page-title">Lista de Jornadas</h1>
+{% endblock %}
+{% block body -%}
+<div class="table-responsive">
+    
+            <div class="table-bordered">
+                {{ addDataTable(dataTable) }}
+            </div>
+        </div>
+        <br/>
+        <a href="{{ path('jornada_new') }}" class="btn btn-primary">
+                Crear Jornada
+            </a>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+{% block titulo %}
+    <h1 class="page-title">Evaluación docente</h1>
+    <p class="lead">{{cc.PensumAnio.Codigo}} - {{cc.PensumAnio.Curso}}<br />{% for cat in cc.catedraticoCursos%}{{cat}}{%endfor%}</p>
+{% endblock %}
+
+{% block body -%}
+
+<form action="{{path('insertar',{'eid':evaluacion.id,'ccid':cc.id,'aid':alumno.id})}}" method="POST">
+<table class="table table-responsive">
+    {% set id = 0 %}
+    {% set tipo = 0 %}
+    {% for pregunta in evaluacion.Pregunta %}
+        {% if tipo != pregunta.TipoPreguntum.id %}
+        <tr>
+            <th colspan="100%">{{pregunta.TipoPreguntum}}</th>
+        </tr>
+        {% endif %}
+        <tr>
+            <th>{{pregunta.Pregunta}}</th>
+            {% set ch='checked' %}
+            {% for opcion in pregunta.opcionPregunta %}
+            <td> <input type="radio" name="opcion[{{id}}]" value={{opcion.Opcion.id}} checked={{ch}}> {{opcion.Opcion.Opcion}} </td>
+            {% set ch='' %}
+            <td width=0><input type="text" name="punteo[{{id}}]" id="punteo[{{id}}]"></td>
+            {% endfor %}
+        </tr>
+        {% set id = id + 1 %}
+        {% set tipo = pregunta.tipoPreguntum.id %}
+    {% endfor %}
+    <tr>
+        <th>Observaciones:<br /><p>Estos son comentarios para su catedrático</p></th>
+        <td colspan="100%"><textarea name="opcion[{{id}}]" cols="40" wrap="hard">Sin comentarios</textarea></td>
+    </tr>
+</table>
+<div align="center">
+    <input type="submit" class="btn btn-primary" value="Enviar respuestas"><br />
+    <br />
+    <div class="bg-warning" style="padding: 10px">
+        <span class="glyphicon glyphicon-warning-sign pull-left" style="font-size: 42px; color: OrangeRed; margin: 0 0.4em 0.2em 0.1em"></span>
+        <h4>Luego de que envie sus respuestas, no podrá cambiarlas</h4>
+    </div>
+</div>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('ver_resultado',{'id':evaluacion.id}) }}">
+            Regresar a la lista
+        </a>
+    </li>
+</ul>
+{% endblock %}

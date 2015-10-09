@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Respuestum</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Respuesta</th>
+                <td>{{ entity.Respuesta }}</td>
+            </tr>
+            <tr>
+                <th>Pregunta_id</th>
+                <td>{{ entity.Preguntaid }}</td>
+            </tr>
+            <tr>
+                <th>Alumnocurso_id</th>
+                <td>{{ entity.AlumnoCursoid }}</td>
+            </tr>
+            <tr>
+                <th>Catedratico_id</th>
+                <td>{{ entity.Catedraticoid }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('respuestum') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('respuestum_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

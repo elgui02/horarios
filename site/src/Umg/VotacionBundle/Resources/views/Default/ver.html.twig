@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+{% block titulo %}
+    <h1 class="page-title">{{evaluacion.CampusCarrera}}</h1>
+{% endblock %}
+
+{% block body -%}
+<h2> Catedráticos calificados </h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th width="50%">Curso</th>
+            <th>Catedrático</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for catedratico in cc %}
+        <tr>
+            <td>{{catedratico.PensumAnio}}</td>
+            <td>{% for cat in catedratico.CatedraticoCursos%} {{cat.Catedratico}} {% endfor %}</td>
+            <td><a href="{{path('mostrar',{'eid':evaluacion.id,'ccid':catedratico.id,'aid':alumno.id})}}">Ver</a></td>
+    {% endfor %}
+    </tbody>
+</table>
+<h2> Catedráticos no calificados </h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th width="50%">Curso</th>
+            <th>Catedrático</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for catedratico in cnc %}
+        <tr>
+            <td>{{catedratico.carreraCurso}}</td>
+            <td>{{catedratico.catedratico}}</td>
+            <td><a href="{{path('evaluar',{'eid':evaluacion.id,'ccid':catedratico.id,'aid':alumno.id})}}">Evaluar</a></td>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

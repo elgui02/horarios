@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>CatedraticoCurso edit</h1>
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('carreracurso_show',{'id':entity.CarreraCurso.id}) }}">
+            Regresar al curso
+        </a>
+    </li>
+{% endblock %}

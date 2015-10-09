@@ -1,0 +1,133 @@
+homepage:
+    path:     /
+    defaults: { _controller: UmgVotacionBundle:Default:index }
+
+ver_resultado:
+    path: /{id}/evaluaciones
+    defaults: { _controller: UmgVotacionBundle:Default:ver }
+
+evaluar:
+    path: /evaluar/{eid}/curso/{ccid}/alumno/{aid}
+    defaults: { _controller: UmgVotacionBundle:Default:evaluar }
+
+mostrar:
+    path: /mostrar/{eid}/curso/{ccid}/alumno/{aid}
+    defaults: { _controller: UmgVotacionBundle:Default:mostrar }
+
+chart:
+    path: /chart
+    defaults: { _controller: UmgVotacionBundle:Default:chart }
+
+insertar:
+    path: /insertar/{eid}/curso/{ccid}/alumno/{aid}
+    defaults: { _controller: UmgVotacionBundle:Default:insertar }
+
+cargararchivo_home:
+    path:   /cargar
+    defaults: {_controller: UmgVotacionBundle:CargarArchivo:importar}
+cargararchivo:
+    path:   /import
+    defaults: {_controller: UmgVotacionBundle:CargarArchivo:index}
+
+showarchivo:
+    path:   /import/show
+    defaults: {_controller: UmgVotacionBundle:CargarArchivo:show}
+
+asignarcurso:
+    path:   /asignarcurso
+    defaults: {_controller: UmgVotacionBundle:CargarArchivo:curso}
+
+alumno_home:
+    resource:   "@UmgVotacionBundle/Controller/AlumnoController.php"
+    type:       annotation
+
+alumnoCurso_home:
+    resource:	"@UmgVotacionBundle/Controller/AlumnoCursoController.php"
+    type:	annotation
+#alumnocurso
+
+campuscarrera_home:
+    resource:   "@UmgVotacionBundle/Controller/CampusCarreraController.php"
+    type:       annotation
+#campuscarrera
+
+campus_home:
+    resource:    "@UmgVotacionBundle/Controller/CampusController.php"
+    type:       annotation
+#campus
+
+carrera_home:
+    resource:   "@UmgVotacionBundle/Controller/CarreraController.php"
+    type:       annotation
+#carrera
+
+carreracurso_home:
+    resource:   "@UmgVotacionBundle/Controller/CarreraCursoController.php"
+    type:       annotation
+#carreracurso
+
+catedratico_home:
+    resource:   "@UmgVotacionBundle/Controller/CatedraticoController.php"
+    type:       annotation
+#catedratico
+
+catedraticocurso_home:
+    resource:   "@UmgVotacionBundle/Controller/CatedraticoCursoController.php"
+    type:       annotation
+#catedraticocurso
+
+curso_home:
+    resource:   "@UmgVotacionBundle/Controller/CursoController.php"
+    type:       annotation
+#curso
+
+jornada_home:
+    resource:   "@UmgVotacionBundle/Controller/JornadaController.php"
+    type:       annotation
+#jornada
+
+opcion_home:
+    resource:   "@UmgVotacionBundle/Controller/OpcionController.php"
+    type:       annotation
+#opcion
+
+opcionpreguntum_home:
+    resource:   "@UmgVotacionBundle/Controller/OpcionPreguntumController.php"
+    type:       annotation
+#opcionpreguntum
+
+pensumanio_home:
+    resource:   "@UmgVotacionBundle/Controller/PensumAnioController.php"
+    type:       annotation
+#pensumanio
+
+pensum_home:
+    resource:   "@UmgVotacionBundle/Controller/PensumController.php"
+    type:       annotation
+#pensum
+
+pregunta_home:
+    resource:   "@UmgVotacionBundle/Controller/PreguntumController.php"
+    type:       annotation
+#preguntum
+
+respuesta_home:
+    resource:   "@UmgVotacionBundle/Controller/RespuestumController.php"
+    type:       annotation
+#respuestum
+
+tipopregunta_home:
+    resource:   "@UmgVotacionBundle/Controller/TipoPreguntumController.php"
+    type:       annotation
+
+usuario_home:
+    resource:   "@UmgVotacionBundle/Controller/UsuarioController.php"
+    type:       annotation
+
+evaluacion_home:
+    resource:   "@UmgVotacionBundle/Controller/EvaluacionController.php"
+    type:       annotation
+
+rcatedratico_home:
+    resource:   "@UmgVotacionBundle/Controller/RcatedraticoController.php"
+    type:       annotation

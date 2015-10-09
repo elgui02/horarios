@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">Lista de tipo de preguntas</h1>
+{% endblock %}
+
+{% block body -%}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('tipopreguntum_edit', { 'id': entity.id }) }}">{{ entity.Tipo }}</a></td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('tipopreguntum_edit', { 'id': entity.id }) }}">editar</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+            <a href="{{ path('tipopreguntum_new') }}" class="btn btn-primary">
+                Nuevo tipo
+            </a>
+    {% endblock %}

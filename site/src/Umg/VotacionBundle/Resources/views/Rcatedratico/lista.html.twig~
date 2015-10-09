@@ -1,0 +1,30 @@
+{% extends "::base.html.twig" %}
+{% block titulo %}
+    <h1 class="page-title">Lista de carreras</h1>
+{% endblock %}
+
+{% block body %}
+<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Codigo</th>
+						<th>Carrera</th>
+						<th>Jornada</th>
+						<th>Campus</th>
+                        <th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+                {% for carrera in carreras %}
+					<tr>
+                        <td>{{carrera.Codigo}}</td>
+                        <td>{{carrera.Carrera}}</td>
+                        <td>{{carrera.Jornada}}</td>
+                        <td>{{carrera.Campus}}</td>
+                        <td><a href="{{path('umg_votacion_rcatedratico_ver',{'id':carrera.id})}}">Ver catedráticos </a></td>				
+                    </tr>
+                {% endfor %}
+				</tbody>
+			</table>
+
+{% endblock %}

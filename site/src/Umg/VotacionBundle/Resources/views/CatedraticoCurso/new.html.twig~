@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">Asignar catedrático a curso</h1>
+{% endblock %}
+
+{% block body -%}
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('carreracurso_show',{'id':entity.CampusCurso.id}) }}">
+            Regresar al curso
+        </a>
+    </li>
+</ul>
+{% endblock %}

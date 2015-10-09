@@ -1,0 +1,68 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">{{entity.PensumAnio.Codigo}} {{entity.PensumAnio.Curso}}</h1>
+    <p class="lead">{{ entity.CampusCarrera }}</p>
+{% endblock %}
+
+{% block body -%}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Catedrático asignado</th>
+                <td>
+                    {% set nuevo = 1 %}
+                    {% for catedratico in entity.CatedraticoCursos %} 
+                        {% set nuevo = 0 %}
+                        <a href={{path('catedraticocurso_edit', {'id': catedratico.id})}}>{{ catedratico.Catedratico }}</a>
+                    {% endfor %}
+                    {% if nuevo == 1 %}
+                        <a href={{path('catedraticocurso_new', {'id':entity.id})}}>Asignar catedrático</a>
+                    {% endif %}
+                </td>
+            </tr>
+        </thead>
+    </table>
+
+    
+    <h1> Lista de alumnos asignados </h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Carné</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for alumnos in entity.getAlumnoCursos %}
+            <tr>
+                <td>{{ alumnos.Alumno.Carne }}</td>
+                <td>{{ alumnos.Alumno.Nombre }}</td>
+                <td>
+                    <ul>
+                        <li><a href="{{ path('alumnocurso_show', { 'id': alumnos.id }) }}">ver</a></li>
+                        <li><a href="{{ path('alumnocurso_edit', { 'id': alumnos.id }) }}">editar</a></li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    <a href={{path('alumnocurso_new',{'id':entity.id})}} class='btn btn-primary'>Asignar alumnos</a>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('campuscarrera_show', {'id':entity.CampusCarreraid}) }}">
+            Regresar a la carrera
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('carreracurso_edit', { 'id': entity.id }) }}">
+            Editar
+        </a>
+    </li>
+</ul>
+{% endblock %}

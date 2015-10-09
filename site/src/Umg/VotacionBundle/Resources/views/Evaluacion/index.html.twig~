@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">Lista de evaluaciones</h1>
+{% endblock %}
+
+
+{% block body -%}
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>carrera</th>
+                <th>Activa</th>
+                <th>Fecha hora</th>
+                <th>Fecha hora final</th>
+                <th>Actiones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('evaluacion_show', { 'id': entity.id }) }}">{{ entity.CampusCarrera }}</a></td>
+                <td>{% if  entity.Activa ==  1 %}Sí {% else %} No {% endif %}</td>
+                <td>{% if entity.FechaHora %}{{ entity.FechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.FechaHoraFinal %}{{ entity.FechaHoraFinal|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('evaluacion_show', { 'id': entity.id }) }}">ver</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('evaluacion_edit', { 'id': entity.id }) }}">editar</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+            <a href="{{ path('evaluacion_new') }}" class="btn btn-primary">
+                Nueva encuesta
+            </a>
+    {% endblock %}

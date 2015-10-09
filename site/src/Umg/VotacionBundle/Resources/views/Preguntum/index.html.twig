@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Preguntum list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pregunta</th>
+                <th>Tipopregunta_id</th>
+                <th>Evaluacion_id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('preguntum_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.Pregunta }}</td>
+                <td>{{ entity.TipoPreguntaid }}</td>
+                <td>{{ entity.Evaluacionid }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('preguntum_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('preguntum_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('preguntum_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">{{ entity.Campus }}</h1>
+{% endblock %}
+{% block body -%}
+<div class="table-responsive">
+  <div class="table-bordered">
+                {{ addDataTable(dataTable) }}
+</div>
+</div>
+<a href={{ path('campuscarrera_new', {'id': entity.id}) }} class="btn btn-primary">Asiganar carrera al campus</a>
+<br />
+<a href="{{ path('campus') }}">Regresar a la lista</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+{% block titulo %}
+    <h1 class="page-title">Lista de catedraticos</h1>
+{% endblock %}
+
+{% block body %}
+<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Codigo</th>
+						<th>Nombre</th>
+                        <th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+                {% for cc in lstCat %}
+					<tr>
+                        <td>{{cc.Catedratico.Codigo}}</td>
+                        <td>{{cc.Catedratico.Nombre}}</td>
+                        <td><a href="{{path('umg_votacion_rcatedratico_ver',{'cid':cc.Catedratico.id,'caid':carrera.id})}}">Ver resultados </a></td>				
+                    </tr>
+                {% endfor %}
+				</tbody>
+			</table>
+
+{% endblock %}

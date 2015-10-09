@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">Lista de cursos</h1>
+{% endblock %}
+
+{% block body -%}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('curso_show', { 'id': entity.id }) }}">{{ entity.Curso }}</a></td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('curso_show', { 'id': entity.id }) }}">ver</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('curso_edit', { 'id': entity.id }) }}">editar</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('curso_new') }}">
+                Nuevo curso
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,5 @@
+<div class="text-right">
+    <a href="{{ path('carrera_show', { 'id': id }) }}">Ver <span class="glyphicon glyphicon-expand" aria-hidden="true"></span> </a><br />
+    <a href="{{ path('carrera_edit', { 'id': id }) }}">Editar <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> </a>
+</div>
+

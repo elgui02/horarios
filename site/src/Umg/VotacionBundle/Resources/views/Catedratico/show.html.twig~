@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+{% block titulo %}
+<h1 class="page-title">{{entity.Codigo}} - {{entity.Nombre}}</h1>
+{% endblock %}
+{% block body -%}
+    <h1>Catedratico</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Nit</th>
+                <td>{{ entity.Nit }}</td>
+            </tr>
+            <tr>
+                <th>Dirección</th>
+                <td>{{ entity.Direccion }}</td>
+            </tr>
+            <tr>
+                <th>Fecha de nacimiento</th>
+                <td>{{ entity.FechaNacimiento }}</td>
+            </tr>
+            <tr>
+                <th>No. Colegiado</th>
+                <td>{{ entity.Colegiado }}</td>
+            </tr>
+            <tr>
+                <th>Especialidad</th>
+                <td>{{ entity.Especialidad }}</td>
+            </tr>
+            <tr>
+                <th>Universidad</th>
+                <td>{{ entity.Universidad }}</td>
+            </tr>
+            <tr>
+                <th>Año de graduación</th>
+                <td>{{ entity.Graduacion }}</td>
+            </tr>
+            <tr>
+                <th>Otros estudios</th>
+                <td>{{ entity.Estudios }}</td>
+            </tr>
+            <tr>
+                <th>Logros</th>
+                <td>{{ entity.Logros }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('catedratico') }}">
+           Regresar a la lista
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('catedratico_edit', { 'id': entity.id }) }}">
+            Editar
+        </a>
+    </li>
+</ul>
+{% endblock %}

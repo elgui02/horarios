@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">Lista de Carreras</h1>
+{% endblock %}
+
+{% block body -%}
+       {% include "Brown298DtTestBundle:DtAnnotationStyle:content.html.twig" %} 
+<div class="table-responsive">
+    
+            <div class="table-bordered">
+                {{ addDataTable(dataTable) }}
+            </div>
+        </div>
+        <br />
+    
+        
+        <a href="{{ path('carrera_new') }}" class="btn btn-primary">
+                Crear Carrera
+            </a>
+
+    {% endblock %}

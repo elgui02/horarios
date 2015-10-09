@@ -1,0 +1,113 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    umg_votacion.Jornada:
+        class: Umg\VotacionBundle\Admin\JornadaAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Centro de Estudios", label: "Jornadas" }
+        arguments: [null, Umg\VotacionBundle\Entity\Jornada, UmgVotacionBundle:UsuarioAdmin]
+
+    umg_votacion.Carrera:
+        class: Umg\VotacionBundle\Admin\CarreraAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Centro de Estudios", label: "Carreras" }
+        arguments: [null, Umg\VotacionBundle\Entity\Carrera, UmgVotacionBundle:UsuarioAdmin]
+    
+    umg_votacion.Campus:
+        class: Umg\VotacionBundle\Admin\CampusAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Centro de Estudios", label: "Campus" }
+        arguments: [null, Umg\VotacionBundle\Entity\Campus, UmgVotacionBundle:UsuarioAdmin]
+
+    umg_votacion.CarrraCampus:
+        class: Umg\VotacionBundle\Admin\CampusCarreraAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Centro de Estudios", label: "Asignación Campus Carrera" }
+        arguments: [null, Umg\VotacionBundle\Entity\CampusCarrera, UmgVotacionBundle:UsuarioAdmin]
+
+    umg_votacion.Curso:
+        class: Umg\VotacionBundle\Admin\CursoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Pensums", label: "Cursos" }
+        arguments: [null, Umg\VotacionBundle\Entity\Curso, UmgVotacionBundle:UsuarioAdmin]
+        
+    umg_votacion.Pensum:
+        class: Umg\VotacionBundle\Admin\PensumAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Pensums", label: "Año" }
+        arguments: [null, Umg\VotacionBundle\Entity\Pensum, UmgVotacionBundle:UsuarioAdmin]
+        
+    umg_votacion.PensumAnio:
+        class: Umg\VotacionBundle\Admin\PensumAnioAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Pensums", label: "Asignación Pensum" }
+        arguments: [null, Umg\VotacionBundle\Entity\PensumAnio, UmgVotacionBundle:UsuarioAdmin]
+        
+    umg_votacion.CarreraCursos:
+        class: Umg\VotacionBundle\Admin\CarreraCursoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Cursos", label: "Asignación Cursos a Carrera" }
+        arguments: [null, Umg\VotacionBundle\Entity\CarreraCurso, UmgVotacionBundle:UsuarioAdmin]    
+        
+    umg_votacion.CatedraticoCursos:
+        class: Umg\VotacionBundle\Admin\CatedraticoCursoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Cursos", label: "Asignación Catedratico a Cursos" }
+        arguments: [null, Umg\VotacionBundle\Entity\CatedraticoCurso, UmgVotacionBundle:UsuarioAdmin]           
+        
+    umg_votacion.AlumnoCurso:
+        class: Umg\VotacionBundle\Admin\AlumnoCursoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Cursos", label: "Asignación Alumnos a Cursos" }
+        arguments: [null, Umg\VotacionBundle\Entity\AlumnoCurso, UmgVotacionBundle:UsuarioAdmin]
+        
+    umg_votacion.Alumno:
+        class: Umg\VotacionBundle\Admin\AlumnoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Estudiantes", label: "Alumnos" }
+        arguments: [null, Umg\VotacionBundle\Entity\Alumno, UmgVotacionBundle:UsuarioAdmin]
+        
+    umg_votacion.Catedratico:
+        class: Umg\VotacionBundle\Admin\CatedraticoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Docentes", label: "Catedratico" }
+        arguments: [null, Umg\VotacionBundle\Entity\Catedratico, UmgVotacionBundle:UsuarioAdmin]
+
+    umg_votacion.Evaluacion:
+        class: Umg\VotacionBundle\Admin\EvaluacionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Evaluacion", label: "Evaluacion" }
+        arguments: [null, Umg\VotacionBundle\Entity\Evaluacion, UmgVotacionBundle:UsuarioAdmin]
+        
+    umg_votacion.Preguntum:
+        class: Umg\VotacionBundle\Admin\PreguntumAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Preguntas", label: "Pregunta" }
+        arguments: [null, Umg\VotacionBundle\Entity\Preguntum, UmgVotacionBundle:UsuarioAdmin]
+        
+    umg_votacion.OpcionesPreguntum:
+        class: Umg\VotacionBundle\Admin\OpcionPreguntumAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Preguntas", label: "Opciones Pregunta" }
+        arguments: [null, Umg\VotacionBundle\Entity\OpcionPreguntum, UmgVotacionBundle:UsuarioAdmin]
+        
+    umg_votacion.TipoPregunta:
+        class: Umg\VotacionBundle\Admin\TipoPreguntumAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Preguntas", label: "Tipo" }
+        arguments: [null, Umg\VotacionBundle\Entity\TipoPreguntum, UmgVotacionBundle:UsuarioAdmin]
+
+    umg_votacion.OpcionPregunta:
+        class: Umg\VotacionBundle\Admin\OpcionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Preguntas", label: "Opcion" }
+        arguments: [null, Umg\VotacionBundle\Entity\Opcion, UmgVotacionBundle:UsuarioAdmin]
+        
+    umg_votacion.Respuestum:
+        class: Umg\VotacionBundle\Admin\RespuestumAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Preguntas", label: "Respuesta" }
+        arguments: [null, Umg\VotacionBundle\Entity\Respuestum, UmgVotacionBundle:UsuarioAdmin]

@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{% block titulo %}
+    <h1 class="page-title">Nuevo pensum</h1>
+{% endblock %}
+
+{% block body -%}
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('pensum') }}">
+            Regresar a la lista
+        </a>
+    </li>
+</ul>
+{% endblock %}
