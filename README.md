@@ -18,4 +18,4 @@ https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mys
 https://www.apachefriends.org/es/index.html
 
 [Página de pruebas]
-http://umgh.mcore.io/
+http://www.umgh.sourcetip.com/
