@@ -16,6 +16,7 @@ class CursoType extends AbstractType
     {
         $builder
             ->add('Curso')
+            ->add('Laboratorio')
         ;
     }
     

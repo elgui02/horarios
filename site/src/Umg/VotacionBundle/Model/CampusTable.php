@@ -21,15 +21,22 @@ class CampusTable extends QueryBuilderDataTable implements QueryBuilderDataTable
 {
     /**
      * @var string
-     * @DataTable\Column(source="q.id", name="Nombre")
-     * @DataTable\Format(dataFields={"id":"q.id","campus":"q.Campus"}, template="UmgVotacionBundle:Campus:nombre.html.twig")
+     * @DataTable\Column(source="q.Codigo", name="Codigo")
+     * @DataTable\Format(dataFields={"id":"q.id","campus":"q.Codigo"}, template="UmgVotacionBundle:Campus:nombre.html.twig")
      * @DataTable\DefaultSort()
      */
     public $id;
-      
+    
+    /**
+     * @var string
+     * @DataTable\Column(source="q.Campus", name="Nombre")
+     * @DataTable\DefaultSort()
+     */
+    public $campus;
+
     /**
      * @var int
-     * @DataTable\Column(source="q.Campus", name="Acciones")
+     * @DataTable\Column(source="q.id", name="Acciones")
      * @DataTable\Format(dataFields={"id":"q.id"}, template="UmgVotacionBundle:Campus:accionesindex.html.twig")
      */
     public $acciones;
