@@ -16,6 +16,7 @@ class CarreraCursoType extends AbstractType
     {
         $builder
             ->add('campusCarrera')
+            ->add('Laboratorio')
             ->add('pensumAnio','genemu_jqueryselect2_entity',array(
                 'class' => 'Umg\VotacionBundle\Entity\PensumAnio',
                 'empty_value' => 'Seleccione cursos',

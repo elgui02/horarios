@@ -9,6 +9,8 @@
 {% endblock %}
 
 {% block body -%}
+<div class="row">
+    <div class="col-lg-12">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -17,6 +19,39 @@
             </tr>
         </thead>
     </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4">
+    <h2>Semestres y secciones </h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Semestre</th>
+                <th>Unidad</th>
+                <th>Secciones</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for semestre in entity.Semestres %}
+            <tr>
+                <td>{{ semestre.Semestre }}</td>
+                <td>{{ semestre.Unidad +1}}</td>
+                <td>{# cursos.PensumAnio.Curso #}</td>
+                <td>
+                    <ul>
+                        <li><a href="{{path('semestre_edit', { 'id': semestre.id }) }}">editar</a></li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href={{ path('semestre_new', {'id': entity.id}) }} class="btn btn-primary">Asiganar semestre a la carrera</a>
+    <br />
+    </div>
+    <div class="col-lg-8">
     <h1> Lista de cursos </h1>
     <table class="table table-striped">
         <thead>
@@ -45,7 +80,9 @@
     </table>
     <a href={{ path('carreracurso_new', {'id': entity.id}) }} class="btn btn-primary">Asiganar cursos a la carrera</a>
     <br />
-
+    </div>
+    </div>
+    <div class="row">
         <ul class="record_actions">
     <li>
         <a href="{{ path('campus_show', {'id':entity.Campus.id}) }}">
@@ -58,4 +95,5 @@
         </a>
     </li>
 </ul>
+</div>
 {% endblock %}

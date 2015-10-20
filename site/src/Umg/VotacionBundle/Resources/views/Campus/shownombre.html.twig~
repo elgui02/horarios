@@ -1,0 +1,1 @@
+<a href="{{ path('pensum_edit', { 'id': id }) }}">{{ codigo }}</a>

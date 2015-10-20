@@ -131,3 +131,8 @@ evaluacion_home:
 rcatedratico_home:
     resource:   "@UmgVotacionBundle/Controller/RcatedraticoController.php"
     type:       annotation
+
+semestre_home:
+    resource:   "@UmgVotacionBundle/Controller/SemestreController.php"
+    type:       annotation
+        

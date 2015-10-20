@@ -21,7 +21,7 @@ class CarreraCursoType extends AbstractType
                 'empty_value' => 'Seleccione cursos',
                 'required' => true,
                 'multiple' => true,
-                'configs' => array('width' => '400px'),
+                'configs' => array('width' => '1139px'),
             ))
         ;
     }
