@@ -38,10 +38,11 @@
             <tr>
                 <td>{{ semestre.Semestre }}</td>
                 <td>{{ semestre.Unidad +1}}</td>
-                <td>{# cursos.PensumAnio.Curso #}</td>
+                <td>{% for seccion in semestre.Secciones %}{{seccion.Seccion}}{% endfor %}</td>
                 <td>
                     <ul>
                         <li><a href="{{path('semestre_edit', { 'id': semestre.id }) }}">editar</a></li>
+                        <li><a href="{{path('seccion_new', { 'id': semestre.id }) }}">sección</a></li>
                     </ul>
                 </td>
             </tr>
@@ -80,6 +81,7 @@
     </table>
     <a href={{ path('carreracurso_new', {'id': entity.id}) }} class="btn btn-primary">Asiganar cursos a la carrera</a>
     <br />
+    </div>
     </div>
     <div class="row">
         <ul class="record_actions">

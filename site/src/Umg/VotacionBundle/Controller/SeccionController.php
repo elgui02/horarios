@@ -53,7 +53,7 @@ class SeccionController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('seccion_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('campuscarrera_show', array('id' => $entity->getSemestre()->getCampusCarrera()->getId())));
         }
 
         return array(
@@ -84,13 +84,22 @@ class SeccionController extends Controller
     /**
      * Displays a form to create a new Seccion entity.
      *
-     * @Route("/new", name="seccion_new")
+     * @Route("/{id}/new", name="seccion_new")
      * @Method("GET")
      * @Template()
      */
-    public function newAction()
+    public function newAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $semestre = $em->getRepository('UmgVotacionBundle:Semestre')->find($id);
+
+        if (!$semestre) {
+            throw $this->createNotFoundException('Unable to find Semestre entity.');
+        }
+
         $entity = new Seccion();
+        $entity->setSemestre($semestre);
         $form   = $this->createCreateForm($entity);
 
         return array(

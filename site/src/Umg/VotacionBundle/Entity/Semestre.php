@@ -257,4 +257,9 @@ class Semestre
     {
         return array('id', 'Semestre', 'Unidad', 'CampusCarrera_id');
     }
+
+    public function __toString()
+    {
+        return 'Semestre: '.$this->Semestre.' Unidad: '.$this->Unidad;
+    }
 }

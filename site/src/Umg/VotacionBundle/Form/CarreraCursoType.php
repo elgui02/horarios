@@ -15,8 +15,8 @@ class CarreraCursoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('campusCarrera')
             ->add('Laboratorio')
+            ->add('campusCarrera')
             ->add('pensumAnio','genemu_jqueryselect2_entity',array(
                 'class' => 'Umg\VotacionBundle\Entity\PensumAnio',
                 'empty_value' => 'Seleccione cursos',
@@ -24,6 +24,7 @@ class CarreraCursoType extends AbstractType
                 'multiple' => true,
                 'configs' => array('width' => '1139px'),
             ))
+            ->add('semestre')
         ;
     }
     

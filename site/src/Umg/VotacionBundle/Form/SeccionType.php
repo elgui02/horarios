@@ -16,7 +16,6 @@ class SeccionType extends AbstractType
     {
         $builder
             ->add('Seccion')
-            ->add('Semestre_id')
             ->add('semestre')
         ;
     }

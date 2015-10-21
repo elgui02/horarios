@@ -16,12 +16,20 @@ class CarreraCursoEditType extends AbstractType
     {
         $builder
             ->add('campusCarrera')
-            ->add('laboratorio')
+            ->add('Laboratorio')
             ->add('pensumAnio','genemu_jqueryselect2_entity',array(
                 'class' => 'Umg\VotacionBundle\Entity\PensumAnio',
                 'required' => true,
                 'configs' => array('width' => '1139px'),
             ))
+            ->add('semestre', 'entity', array(
+                'class' => 'UmgVotacionBundle:Semestre',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->where('u.CampusCarrera = ? :campus')
+                        ->addParameter('campus',$this->getCampusCarrera())
+                },
+                ))
         ;
     }
     

@@ -17,7 +17,7 @@ class SemestreType extends AbstractType
         $builder
             ->add('Semestre')
             ->add('Unidad', 'choice', array(
-                'choices'  => array('m' => 'Male', 'f' => 'Female'),
+                'choices'  => array(1,2,3,4,5,6,7,8),
                 'required' => false,
             ))
             ->add('campusCarrera')
@@ -40,5 +40,11 @@ class SemestreType extends AbstractType
     public function getName()
     {
         return 'umg_votacionbundle_semestre';
+    }
+
+    public function __toString()
+    {
+        return 'Semestre: '.$this->Semestre.' Unidad: '.$this->Unidad;
+    }
     }
 }

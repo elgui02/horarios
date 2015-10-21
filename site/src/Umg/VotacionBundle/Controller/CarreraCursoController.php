@@ -53,6 +53,7 @@ class CarreraCursoController extends Controller
         try {
             
             $carrera = $em->getRepository('UmgVotacionBundle:CampusCarrera')->find($cursos['campusCarrera']);
+            $semestre = $em->getRepository('UmgVotacionBundle:Semestre')->find($cursos['semestre']);
             foreach ($cursos['pensumAnio'] as $valor)
             {
                 $curso = $em->getRepository('UmgVotacionBundle:PensumAnio')->find($valor);
@@ -60,6 +61,8 @@ class CarreraCursoController extends Controller
                 $entity = new CarreraCurso();
                 $entity->setCampusCarrera($carrera);
                 $entity->setPensumAnio($curso);
+                $entity->setLaboratorio($cursos['Laboratorio']);
+                $entity->setSemestre($semestre);
                 $em->persist($entity);
                 $em->flush();
 

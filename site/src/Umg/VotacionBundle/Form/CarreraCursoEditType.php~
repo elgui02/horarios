@@ -22,6 +22,7 @@ class CarreraCursoEditType extends AbstractType
                 'required' => true,
                 'configs' => array('width' => '1139px'),
             ))
+            ->add('semestre')
         ;
     }
     
